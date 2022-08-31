@@ -146,12 +146,12 @@
                 // ['web'|'music'|'video'|'image'|'download'|'shopping'|'translate'|'knowledge'|'sociality']
                 engineList: 'web',
                 // 添加一个class, 用来使用目标网站的样式
-                class: "s6JM6d",  
+                class: "s6JM6d",
                 // 若固定到顶栏,是否给一个高度
                 fixedTop: 52,
                 // 固定到顶栏, 兼容ac百度用
                 // fixedTop2:88,
-                //  给引擎列表的样式 
+                //  给引擎列表的样式
                 style: '\
                     z-index: 100;\
                     margin-top:5px;\
@@ -230,7 +230,7 @@
                     text-align: center;\
                     padding-left:0px !important;\
                     background: rgba(248,248,248,0.4);\
-                    backdrop-filter: blur(10px);\
+                    backdrop-filter: blur(18px);\
                 ',
                 insertIntoDoc: {
                     keyword: 'css;input#kw',
@@ -605,7 +605,7 @@
                     width:960px;\
                     z-index:19;\
                     background: #fff;\
-                    box-shadow: 0 1px 3px 0 rgba(0,34,77,.05);  \
+                    box-shadow: 0px 9px 24px rgb(0 0 0 / 6%);  \
                     padding: 5px 20px; \
                 ",
                 // 兼容“知乎排版优化”
@@ -615,7 +615,7 @@
                     width:654px;\
                     z-index:19;\
                     background: #fff;\
-                    box-shadow: 0 1px 3px 0 rgba(0,34,77,.05);  \
+                    box-shadow: 0px 9px 24px rgb(0 0 0 / 6%);  \
                     padding: 5px 20px; \
                 ",
                 insertIntoDoc: {
@@ -990,7 +990,7 @@
                 enabled: true,
                 engineList: "image",
                 fixedTop:70,  //关闭关联联想的情况下
-                // fixedTop:135,  // 
+                // fixedTop:135,  //
                 style: '\
                     margin-left:127px;\
                     ',
@@ -1717,7 +1717,7 @@
                }
             },
             {
-                name: "抖音搜索",   
+                name: "抖音搜索",
                 //https://www.douyin.com/search/
                 url:/^https?:\/\/www\.douyin\.com\/search/,
                 engineList:"web",
@@ -1794,7 +1794,7 @@
                 }
             }
         ];
-        
+
         // 有些图标需要重复使用
         var icon ={};
         icon = {
@@ -2685,7 +2685,7 @@
                 //         getSettingData.engineList["translate"].push(engineList.translate[8])
                 //     }
                 // }
-                // 4.04 更改 b站图标  
+                // 4.04 更改 b站图标
                     // 导致了5.23.7 的严重bug, 致使无法使用。原因是用户已经删除了相关列表, 但是脚本依旧去读取,出现了读取错误。
                 // if(getSettingData.modifySearchItems){
                 //     getSettingData.engineList.video = modifySearchItemsIcon(getSettingData.engineList.video,"http://search.bilibili.com/all?keyword=%s",engineList.video[1].favicon)
@@ -3151,8 +3151,8 @@
         var globalStyle = document.createElement('style');
         globalStyle.type = 'text/css';
         globalStyle.textContent = getMStr(function(){
-            var cssText;
-            /*
+          var cssText;
+          /*
                 #sej-container {
                     display: block;
                     position: relative;
@@ -3162,11 +3162,11 @@
                     font-size: 13px;
                     font-family: arial,sans-serif;
                     transform-origin: top center;
-                    animation: sejopen 0.3s;
+                    animation: sejopen 0.15s;
                     border-bottom-right-radius: 4px;
                     border-bottom-left-radius: 4px;
-                    color: #333;
-                    //transition:0.3s;
+                    color: #323130;
+                    //transition:0.15s;
                 }
                 #sej-container a{
                     border-radius:2px;
@@ -3191,7 +3191,8 @@
                 .sej-engine a:hover,
                 #sej-container a:visited,
                 #sej-container a:hover{
-                    color:#333;
+                    color:#323130;
+                    text-decoration:none;
                 }
                 .sej-engine:hover {
                     background-color: #EAEAEA;
@@ -3228,14 +3229,14 @@
                     padding: 5px 0;
                     text-align: left;
                     font-size: 13px;
-                    -moz-box-shadow: 1px 1px 5px #999;
-                    -webkit-box-shadow: 2px 2px 5px #999;
-                    box-shadow: 2px 2px 5px #999;
+                    -moz-box-shadow: 0px 9px 24px rgb(0 0 0 / 6%);
+                    -webkit-box-shadow: 0px 9px 24px rgb(0 0 0 / 6%);
+                    box-shadow: 0px 9px 24px rgb(0 0 0 / 6%);
                     background-color: rgba(255,255,255,.7);
                     backdrop-filter: blur(7px);
                     border-bottom-right-radius: 3px;
                     border-bottom-left-radius: 3px;
-                    transition: opacity 0.2s ease-in-out,
+                    transition: opacity 0.1s ease-in-out,
                         top 0.2s ease-in-out;
                 }
                 @keyframes sejopen {
@@ -3261,7 +3262,7 @@
             */
         }).cssText;
         document.head.appendChild(globalStyle);
-        
+
         // 工具列表动画
         if(!getSettingData.transtion){
             GM_addStyle(".sej-engine," +
@@ -3273,7 +3274,7 @@
                             "animation:none!important;" +
                         "}" +
                         ".sej-drop-list {" +
-                            "backdrop-filter:none!important;" +
+                            "backdrop-filter: blur(18px)!important;" +
                             "background-color: rgba(255,255,255,.9)!important;" +
                             "}" +
                         ""
@@ -3285,25 +3286,25 @@
                 ".sej-drop-list-trigger-shown {" +
                     "background-color: #DEEDFF !important;" +
                 "}" +
-                ".sej-drop-list-trigger::after {" +
-                    "content: '';" +
-                    "display: inline-block;" +
-                    "margin: 0 0 0 3px;" +
-                    "padding: 0;" +
-                    "width: 0;" +
-                    "height: 0;" +
-                    "border-top: 6px solid #BCBCBC;" +
-                    "border-right: 5px solid transparent;" +
-                    "border-left: 5px solid transparent;" +
-                    "border-bottom: 0px solid transparent;" +
-                    "vertical-align: middle;" +
-                    "transition: -webkit-transform 0.3s ease-in-out;" +
-                    "transition: transform 0.3s ease-in-out;" +
-                "}" +
-                ".sej-drop-list-trigger-shown::after {" +
-                    "-webkit-transform: rotate(180deg);" +
-                    "transform: rotate(180deg);" +
-                "}" +
+                // ".sej-drop-list-trigger::after {" +
+                //     "content: '';" +
+                //     "display: inline-block;" +
+                //     "margin: 0 0 0 3px;" +
+                //     "padding: 0;" +
+                //     "width: 0;" +
+                //     "height: 0;" +
+                //     "border-top: 6px solid #BCBCBC;" +
+                //     "border-right: 5px solid transparent;" +
+                //     "border-left: 5px solid transparent;" +
+                //     "border-bottom: 0px solid transparent;" +
+                //     "vertical-align: middle;" +
+                //     "transition: -webkit-transform 0.15s ease-in-out;" +
+                //     "transition: transform 0.15s ease-in-out;" +
+                // "}" +
+                // ".sej-drop-list-trigger-shown::after {" +
+                //     "-webkit-transform: rotate(180deg);" +
+                //     "transform: rotate(180deg);" +
+                // "}" +
             +"")
         }else{
             GM_addStyle("" +
@@ -3323,7 +3324,7 @@
 
         DropDownList.prototype = {
             hidden: true,
-            showDelay: 233,
+            showDelay: 50,
             hideDelay: 233,
             aShownClass: 'sej-drop-list-trigger-shown',
 
@@ -3342,13 +3343,13 @@
                 // 进入显示
                 mouseEventListener.add('mouseenter', a, function () {
                     clearTimeout(self.hideTimerId);
-                    
+
                     if (self.hidden) {
                         self.showTimerId = setTimeout(function () {
                             self.show();
                         }, self.showDelay);
                     } else {
-                        var style = list.style; 
+                        var style = list.style;
                         style.top = parseInt(list.style.top) -6 +"px";
                         style.zIndex = DropDownList.zIndex ++;
                         style.opacity = 0.96;
@@ -3358,7 +3359,7 @@
                 // 离开隐藏
                 mouseEventListener.add('mouseleave', a, function () {
                     clearTimeout(self.showTimerId);
-                    
+
                     if (!self.hidden) {
                         list.style.top = parseInt(list.style.top)+6 +"px";
                         list.style.opacity = 0.04;
@@ -3370,7 +3371,7 @@
 
                 mouseEventListener.add('mouseenter', list, function () {
                     clearTimeout(self.hideTimerId);
-                    
+
                     var style = list.style;
                     style.zIndex = DropDownList.zIndex ++;
                     style.opacity = 0.96;
@@ -3454,9 +3455,9 @@
         if(matchedRule.class){
             container.className = container.className + " " + matchedRule.class;
         }
-        
+
         container.addEventListener('mousedown', mousedownhandler, true);
-        
+
         var aPattern = '<a href="" class="sej-engine" target="$blank$" data-iqxincategory="$category$" encoding="$encoding$" gbk="$gbk$" url="$url$"><img src="$favicon$" class="sej-engine-icon" />$name$</a>';
         var dropLists = [];
         engineList.details.forEach(function (item) {
@@ -3515,7 +3516,7 @@
                 // dropList: 搜索子菜单
                 var a = dropList.firstElementChild.cloneNode(true);
                 a.className = a.className + ' sej-drop-list-trigger';
-                
+
                 // 隐藏主搜索菜单的图标
                 if(!getSettingData.icon){
                     cName = "";
@@ -3628,10 +3629,10 @@
             }
         },2500)
 
-                
+
         // 由于与要插入网页的样式无法很好的兼容,更改源网页的样式
         if(matchedRule.stylish){GM_addStyle(matchedRule.stylish);};
-        
+
         //固定搜索栏
         if(getSettingData.fixedTop){
             // 判断是否需要只在向上滚动时显示
@@ -3698,7 +3699,7 @@
                 }
                 obj.style.left = getElementLeft(obj) - marginLeft + "px";
                 // obj.style.left = getElementLeft(obj) + "px";
-                
+
                 debug("objLeft: ",objLeft,"marginLeft: ",marginLeft,"marginRight: ",marginRight,"getElementLeft: ",getElementLeft(obj));
                 // 知乎等网站的情况 利用 margin 居中
                 if(marginRight === marginLeft && marginRight != 0){
@@ -3727,13 +3728,13 @@
         }
         function fixedTopFun2(Target,where){
             var obj = document.getElementById("sej-container");
-            
+
             var oTarget = getElement(Target)
 
             console.log("fixedTopFun2");
             console.log(Target);
             console.log(where);
-            
+
             switch (where.toLowerCase()) {
                 case 'beforebegin' :    // 'beforeBegin'(插入到给定元素的前面) ;
                 oTarget.parentNode.insertBefore(obj, oTarget);
@@ -3992,7 +3993,7 @@
                 // 增加搜索列表
                 var nSearchList = document.createElement("div");
                 nSearchList.id = "nSearchList";
-                nSearchList.style.cssText = "visibility:hidden;opacity:0;transition:0.3s;position:absolute;bottom:10%;right:5%;padding:5px 10px;border-radius:4px;border:1px solid #EC6D51;color:#ec6d51;cursor:pointer;background:#fff;";
+                nSearchList.style.cssText = "visibility:hidden;opacity:0;transition:0.15s;position:absolute;bottom:10%;right:5%;padding:5px 10px;border-radius:4px;border:1px solid #EC6D51;color:#ec6d51;cursor:pointer;background:#fff;";
                 nSearchList.innerHTML = "增加新的搜索列表";
                 this.ele.appendChild(nSearchList);
 
@@ -4111,7 +4112,7 @@
                         '<select> ' +
                     "</span>" +
                     "<br/><br/>" +
-                    "<span style=''><a target='_blank' style='color:#999;' href='https://greasyfork.org/zh-CN/scripts/27752-searchenginejump'>相关使用说明</a></span>" +
+                    "<span style=''><a target='_blank' style='color:#3b3a39;' href='https://greasyfork.org/zh-CN/scripts/27752-searchenginejump'>相关使用说明</a></span>" +
                     "&nbsp;&nbsp;&nbsp&nbsp&nbsp&nbsp&nbsp;" +
                     "<button id='addItemBoxEnter' class='addItemBoxEnter addItemBoxBtn iqxin-enterBtn'>确定</button>&nbsp;&nbsp;&nbsp&nbsp&nbsp;&nbsp" +
                     "<button id='addItemBoxCancel' class='addItemBoxCancel addItemBoxBtn iqxin-closeBtn'>取消</button>" +
@@ -4829,7 +4830,7 @@
                 }
 
                 dragEl.style.transformOrigin = "top center";
-                dragEl.style.animation = "sejopen 0.3s";
+                dragEl.style.animation = "sejopen 0.15s";
 
                 if(domPosition){
                     if(pparentNode.lastChild == that){
@@ -5000,7 +5001,7 @@
                         "position: fixed;" +
                         "top:0; right:0; bottom:0; left:0;" +
                         "background-color: rgba(0,0,0,.3);" +
-                        "backdrop-filter: blur(10px);" +
+                        "backdrop-filter: blur(18px);" +
                         "z-index: 200000000;" +
                         "overflow: auto;" +
                         "font-family: arial,sans-serif;" +
@@ -5106,15 +5107,15 @@
                         "border-radius: 4px;" +
                         "cursor: pointer;" +
                         "outline: none;" +
-                        "transition: 0.3s;" +
+                        "transition: 0.15s;" +
                     "}" +
                     "#btnEle a{" +
-                        "color: #999;" +
+                        "color: #3b3a39;" +
                         "text-decoration: none;" +
                         "font-family: auto;" +
                     "}" +
                     "#btnEle a:hover{" +
-                        "text-decoration: underline;" +
+                        "text-decoration: none;!important" +
                         "color: #ef8957;" +
                     "}" +
                     "#btnEle2 span.feedback:hover," +
@@ -5141,7 +5142,7 @@
                         "visibility:hidden;" +
                         "opacity:0;" +
                         "transform:translate(0,40px);" +
-                        "transition : 0.3s;" +
+                        "transition : 0.15s;" +
                     "}" +
                     "#btnEle2.btnEle2active{" +
                         "visibility:visible;" +
@@ -5218,7 +5219,7 @@
                         "cursor: pointer;" +
                         "visibility:hidden;" +
                         "opacity:0;" +
-                        "transition:0.3s;" +
+                        "transition:0.15s;" +
                         "transform:scale(0);" +
                     "}" +
                     "span.iqxin-additem.iqxin-set-active {" +
@@ -5276,8 +5277,8 @@
                         "border: none;" +
                         "border-radius: 4px;" +
                         "padding: 4px 10px;" +
-                        "color: #333;" +
-                        "transition:0.3s;" +
+                        "color: #323130;" +
+                        "transition:0.15s;" +
                     "}" +
                     "#xin-centerDisplay select," +
                     "#xin-newtab select{" +
@@ -5292,7 +5293,7 @@
                         "-webkit-appearance: none;" +
                         "padding: 0px 5px;" +
                         "cursor: pointer;" +
-                        "text-decoration: underline;" +
+                        "text-decoration: none;!important" +
                         "background: #EFF4F8;" +
                     "}" +
                     "#titleEdit{" +
@@ -5402,8 +5403,8 @@
                 style.type = 'text/css';
                 style.innerHTML = css;
                 head.appendChild(style);
-                
-                // 关闭设置菜单中的所有动画效果 
+
+                // 关闭设置菜单中的所有动画效果
                 if(!getSettingData.transtion){
                     GM_addStyle("#settingLayer," +
                         "#btnEle span," +
@@ -5417,7 +5418,7 @@
                             "transition:none;"+
                         "}"+
                         "#settingLayerMask{" +
-                            "backdrop-filter:none;" +
+                            "backdrop-filter:blur(18px);" +
                             "background-color: rgba(0,0,0,.7);" +
                         "}"+
                         "");
@@ -5431,9 +5432,9 @@
             setBtn.id = "setBtn";
             GM_addStyle("#setBtn{" +
                             "opacity:"+getSettingData.setBtnOpacity+";"+
-                            "transition:0.5s;"+
+                            "transition:0.15s;"+
                         "}"+
-                        "#sej-container:hover span#setBtn{" +
+                        "#sej-container:hover span#setBtn,#sej-container:focus span#setBtn{" +
                             "opacity:1;" +
                         "}" +
                         "");
@@ -5550,7 +5551,7 @@
         return ~url.search(element);
     });
 
-    
+
     // if (hashListTag){
     //     var oldTitle = document.title;
     //     var newTitle = "";
@@ -5568,7 +5569,7 @@
     //             iqxinstart();
     //         }
     //     },1000)
-    // } else 
+    // } else
     if (delayListTag){
         setTimeout(function(){
             // console.log("延时运行");
@@ -5583,7 +5584,7 @@
         // console.log("普通插入");
         iqxinstart();
     }
-        
+
     if (true) {
         // console.log('iqxin添加标题节点监视器: title');
         // 延时添加标题监视器, 应对 youtube
