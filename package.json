@@ -1,0 +1,15 @@
+{
+  "name": "searchEngineJump",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Jkker/searchEngineJump.git",
+  "author": "jkker <me@jerrykjia.com>",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "uglify-js": "^3.17.0"
+  },
+  "devDependencies": {
+    "clean-css": "^5.3.1"
+  }
+}
